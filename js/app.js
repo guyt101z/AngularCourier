@@ -1,93 +1,50 @@
 (function(){
-var app = angular.module('store', ['store-products','store-reviews']);
+var app = angular.module('courier', []);
 
-app.controller('StoreController', function(){
-	this.products = gems;
+
+/**
+ 	por los momentos, esta pagina deberia simplemente deberia conectar todos los modulos
+*/
+
+app.controller('courierController', function(){	
+	this.agencies = [];
 });
 
 
-// app.controller('PanelController', function(){
-// 	this.tab = 1;
 
-// 	this.selectTab = function(setTab){
-// 		this.tab = setTab;
-// 	};
-// 	this.isSelected = function(checkTab){
-// 		return this.tab === checkTab;
-// 	};
-// });
+/* Por hacer:
+	- Controladores aparte para cada modulo.
+	- Session, Rates, Packages, Users, Agencies, Messages?, Token?, Tabulacion?
+	- Formularios para cada uno. (Edit, Create, Update)
+	- Archivos diferentes para los pedazos de la pagina.	
+*/
+
+//tarea actual?, tabulacion  (aqui en adelante es area de desarrollo, antes de poner codigo en segmentos separados)
 
 
-var gems =[{
-	name: 'Dodecahedron',
-	price: 2.95,
-	description: 'Bonita piedra bro, trust me...',
-	canPurchase: true,
-	soldOut:true,
-	images: [
-		{
-			full: 'img/do-01-full.jpg'
-		}
+	app.directive('panelTabs', function(){
 
-	],
-	reviews:[
-		{
-		stars: 5,
-		body: "i love this product!",
-		author: "joe@gmail.com"
-		},
-		{
-		stars: 4,
-		body: "Apesta!",
-		author: "nulo2@gmail.com"
-		}
-		]
-},
-{
-	name: 'Pentagonal Gem',
-	price: 5.95,
-	description: 'Un pentagono!, whoah! mind blow',
-	canPurchase: false,
-	soldOut:true,
-	images: [
-		{
-			full: 'img/ph-01-full.jpeg'
-		}
+		return { 
+			restrict:'E',
+			templateUrl:'pages/panel-tabs.html',
+			controller: function(){
 
-	],
-	reviews:[
-		{
-		stars: 5,
-		body: "i love this productoso!",
-		author: "joe@gmail.com"
-		},
-		{
-		stars: 1,
-		body: "meh",
-		author: "nulo2@gmail.com"
-		}
-		]
-},{
-	name: 'Rubiridiom Gem',
-	price: 9.44,
-	description: 'Adventure time!',
-	canPurchase: true,
-	soldOut:false,
-	images: [
-		{
-			full: 'img/ru-01-full.jpeg'
-		}
+					this.tab = 1;
 
-	],
-	reviews:[
-		{
-		stars: 5,
-		body: "i love this product!",
-		author: "joe@gmail.com"
-		}
-		]
-}
-]
+					this.selectTab = function(setTab){
+						this.tab = setTab;
+					};
+					this.isSelected = function(checkTab){
+						return this.tab === checkTab;
+					};
+
+			},
+			controllerAs: 'panel'
+		};
+
+	});
+
+
 
 })();
 
