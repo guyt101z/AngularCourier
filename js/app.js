@@ -27,6 +27,16 @@ app.controller("ReviewController", function(){
 		};
 });
 
+app.directive('productTitle', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'product-title.html'
+	};
+});
+
+
+
+
 // app.directive('ProductPanels', function(){
 
 // 	return {

@@ -10,12 +10,11 @@
 	<ul class="list-group">
 		<!-- Contenedor de Producto -->		
 		<li class="list-group-item"  ng-repeat="product in store.products">			
-			<h3>
-			 	{{product.name}}
-				<em class="pull-right"> {{product.price | currency}} </em>
-				<img ng-src="{{product.images[0].full}}"/>
-			</h3>			
-					
+<!-- 			<h3 ng-include="'product-title.html'"></h3>	 -->
+			<product-title>	</product-title>
+
+			<img ng-src="{{product.images[0].full}}"/>
+				
 			<section  ng-controller="PanelController as panel">
 				<ul class="nav nav-pills"> 
 					<li ng-class="{ active: panel.isSelected(1)}"> 
