@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">	
+	<link rel="stylesheet" type="text/css" href="css/style">	
+
+</head>
+<body ng-controller="StoreController as store">
+		<!-- Contenedor de Productos -->
+	<ul class="list-group">
+		<!-- Contenedor de Producto -->		
+		<li class="list-group-item"  ng-repeat="product in store.products">			
+<!-- 			<h3 ng-include="'product-title.html'"></h3>	 -->
+			<h3 > <product-title>	</product-title>	</h3>
+
+			<img ng-src="{{product.images[0].full}}"/>
+				
+			<product-panels></product-panels>
+
+			<button ng-show="product.canPurchase"> Add to Cart</button>
+		</li>			
+	</ul>
+
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/products.js"></script>
+		<script type="text/javascript" src="js/reviews.js"></script>
+</body>
+</html> 
