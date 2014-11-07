@@ -52,7 +52,20 @@ app.controller('courierController', function(){
 	- Archivos diferentes para los pedazos de la pagina.	
 */
 
-//tarea actual?, tabulacion  (aqui en adelante es area de desarrollo, antes de poner codigo en segmentos separados)
+//hacer el control de la agencia, de alli saldra lo de los demas.
+
+
+
+//aqui deberia colocar los controladores de la agencia, dentro, obvio
+app.directive('agencyCtrl', function(){
+	return { 
+		restrict:'E',
+		templateUrl:'pages/Agency/index.html',
+	};
+
+});
+
+
 
 
 
