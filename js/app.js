@@ -6,16 +6,16 @@ app.controller('StoreController', function(){
 });
 
 
-app.controller('PanelController', function(){
-	this.tab = 1;
+// app.controller('PanelController', function(){
+// 	this.tab = 1;
 
-	this.selectTab = function(setTab){
-		this.tab = setTab;
-	};
-	this.isSelected = function(checkTab){
-		return this.tab === checkTab;
-	};
-});
+// 	this.selectTab = function(setTab){
+// 		this.tab = setTab;
+// 	};
+// 	this.isSelected = function(checkTab){
+// 		return this.tab === checkTab;
+// 	};
+// });
 
 
 app.controller("ReviewController", function(){
@@ -28,7 +28,8 @@ app.controller("ReviewController", function(){
 });
 
 app.directive('productTitle', function(){
-	return {
+	return {	
+		//asi le dices a ese campo que se trata de un atributo
 		restrict: 'E',
 		templateUrl: 'product-title.html'
 	};
@@ -37,25 +38,27 @@ app.directive('productTitle', function(){
 
 
 
-// app.directive('ProductPanels', function(){
+app.directive('productPanels', function(){
 
-// 	return {
-// 		restrict:'E',
-// 		templateUrl:'product-panels.html'
-// 		controller:function(){
-// 			this.tab = 1;
+	return {
+		restrict:'E',
+		templateUrl:'product-panels.html',
+		controller: function(){
 
-// 			this.selectTab = function(setTab){
-// 				this.tab = setTab;
-// 			};
-// 			this.isSelected = function(checkTab){
-// 				return this.tab === checkTab;
-// 			};
-// 		}
-// 		controllerAs: 'panels'
-// 	};
+				this.tab = 1;
 
-// });
+				this.selectTab = function(setTab){
+					this.tab = setTab;
+				};
+				this.isSelected = function(checkTab){
+					return this.tab === checkTab;
+				};
+
+		},
+		controllerAs: 'panel'
+	};
+
+});
 
 
 
