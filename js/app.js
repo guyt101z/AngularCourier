@@ -38,7 +38,7 @@ app.directive('panelViews', function(){
 
 
 app.controller('courierController', function(){	
-	this.agencies = [];
+	//this.agencies = [];
 });
 
 /**
@@ -57,18 +57,33 @@ app.controller('courierController', function(){
 
 
 //aqui deberia colocar los controladores de la agencia, dentro, obvio
+app.controller('AgencyController',function(){
+	this.agencies = agen;
+});
+
+var agen = [
+		{"id":1,"name":"LuisUPS","phone":"02121111111","address":"poste1","created_at":"2014-11-08T02:36:50.884Z","updated_at":"2014-11-08T02:36:50.884Z"},
+		{"id":2,"name":"CarlosMRW","phone":"02122222222","address":"poste2","created_at":"2014-11-08T02:36:50.910Z","updated_at":"2014-11-08T02:36:50.910Z"},
+		{"id":3,"name":"LorenaUPS","phone":"02123333333","address":"poste3","created_at":"2014-11-08T02:36:50.925Z","updated_at":"2014-11-08T02:36:50.925Z"},
+		{"id":4,"name":"MiguelFEDEX","phone":"02124444444","address":"poste4","created_at":"2014-11-08T02:36:50.940Z","updated_at":"2014-11-08T02:36:50.940Z"}
+	]
+
+
+
+
+
+
+
+
+
 app.directive('agencyCtrl', function(){
 	return { 
 		restrict:'E',
 		templateUrl:'pages/Agency/index.html',
+
 	};
 
 });
-
-
-
-
-
 
 
 })();

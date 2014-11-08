@@ -1,29 +1,29 @@
-<h1> Listing Agencies</h1>
+	<!-- esto hay que quitarlo de aqui -->
+	<div class="media" ng-controller="AgencyController as courier">
+		<div class="media-body">
+			 <table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Address</th>
+						<th colspan="3"> actions </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="agencia in courier.agencies">
+						<!-- <td>aqui va la stuff, recursiva por recurso...</td> -->
 
-<div class="media">
-	<div class="media-body">
-		<table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Phone</th>
-					<th>Address</th>
-					<th colspan="3"> actions </th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<!-- <td>aqui va la stuff, recursiva por recurso...</td> -->
-					<td>namesito</td>
-					<td>phonesito</td>
-					<td>adresito</td>
-					<td>
-						<button> show</button>
-						<button> edit</button>
-						<button> delete</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+						<td>{{agencia.name}}</td>
+						<td>{{agencia.phone}}</td>
+						<td>{{agencia.address}}</td>
+						<td>
+							<button> show</button>
+							<button> edit</button>
+							<button> delete</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
