@@ -1,0 +1,49 @@
+
+	<!-- Esto despues ira en su propio controlador (section)-->
+		<section>
+			<!-- Placeholder para saber donde va la cabezera mientras -->
+			<img src="http://placehold.it/1080x100"></img>
+
+			<ul class="nav nav-pills"> 
+				<li ng-class="{ active: panel.isSelected(1)}"> 
+					<a href="#" ng-click="panel.selectTab(1)"> Home </a>
+				</li>
+				<li ng-class="{ active: panel.isSelected(2)}"> 
+				 <a href="#" ng-click="panel.selectTab(2)"> Agencies </a>
+				</li>
+				<li ng-class="{ active: panel.isSelected(3)}"> 
+					<a href="#" ng-click="panel.selectTab(3)"> Packages </a>
+				</li>
+				<li ng-class="{ active: panel.isSelected(4)}"> 
+					<a href="#" ng-click="panel.selectTab(4)"> Users </a>
+				</li>
+				<li ng-class="{ active: panel.isSelected(5)}"> 
+					<a href="#" ng-click="panel.selectTab(5)"> Rates </a>
+				</li>
+				<li ng-class="{ active: panel.isSelected(6)}"> 
+					<a href="#" ng-click="panel.selectTab(6)"> Pricing </a>
+				</li>
+				<li ng-class="{ active: panel.isSelected(7)}"> 
+					<a href="#" ng-click="panel.selectTab(7)"> About Us</a>
+				</li>
+				
+					<!-- Este es el bloque de aquellos que deben mostrarse segun condiciones -->	
+					<!-- Logeados -->			
+					<li ng-class="{ active: panel.isSelected(8)}"> 
+						<a href="#" ng-click="panel.selectTab(8)"> My Profile </a>
+					</li>
+					<li ng-class="{ active: panel.isSelected(9)}"> 
+						<a href="#" ng-click="panel.selectTab(9)"> Sign Out</a>
+					</li>
+					<!-- No logueados -->
+					<li ng-class="{ active: panel.isSelected(10)}"> 
+						<a href="#" ng-click="panel.selectTab(10)"> Sign Up </a>
+					</li>
+					<li ng-class="{ active: panel.isSelected(11)}"> 
+						<a href="#" ng-click="panel.selectTab(11)"> Sign in </a>
+					</li>
+				
+				</ul>
+		</section>
+
+		<!-- Home,Agencies,Packages, Users , Rates ,  Pricing, About Us , My Profile, Sign Out, Sign Up , Sign in -->
