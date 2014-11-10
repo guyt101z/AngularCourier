@@ -189,7 +189,7 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 						//si te provoca borrar: localStorage.removeItem("id");
 						 localStorage.removeItem("id");
 
-						  $location.path('/packages');  
+						  $scope.getpackages();  
 					}else{
 						alert("Your browser does not support localStorage");
 					}
