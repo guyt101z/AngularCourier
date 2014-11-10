@@ -1,0 +1,38 @@
+	<div>
+		
+		<form name="PriceForm" ng-controller="calculatorController as ccCrtl" ng-submit="PriceForm.$valid && getprice()" ng-show="panel.isSelected(6)" novalidate>
+			<h4>Valores:</h4>
+			<blockquote>
+				<b>lenght: {{pack.lenght}}</b> 
+				<br>
+				<b>width: {{pack.width }}</b>
+				<br>
+				<b>height: {{pack.height }}</b>
+				<br>
+				<b>weight: {{pack.weight }}</b>
+				<br>
+				<b>value: {{pack.value }}</b>
+				<br>
+				<br>
+				<h4>Total: {{pack.total }}</h4>
+			</blockquote>
+
+			<label>lenght:</label>
+			<input ng-model="pack.lenght" type="numeric" required/>
+			<br>
+			<label>width:</label>
+			<input ng-model="pack.width" type="numeric" required/>
+			<br>
+			<label>height:</label>
+			<input ng-model="pack.height" type="numeric" required/>
+			<br>
+			<label>weight:</label>
+			<input ng-model="pack.weight" type="numeric" required/>
+			<br>
+			<label>value:</label>
+			<input ng-model="pack.value" type="numeric" required/>
+			<br>
+			<div> Formulario es {{PriceForm.$valid}}</div>
+			<input type="submit" value="Login"/>
+		</form>
+	</div>

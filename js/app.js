@@ -1,5 +1,5 @@
 
-var app = angular.module('courier', ['courier-agencies','courier-sessions','ngRoute','LocalStorageModule']);
+var app = angular.module('courier', ['courier-agencies','courier-sessions','courier-calculadora','ngRoute','LocalStorageModule']);
 
 app.config(function($routeProvider){
 
@@ -8,6 +8,16 @@ app.config(function($routeProvider){
     templateUrl: 'pages/home.html',
 
   });
+  //Vistas simples
+  $routeProvider.when('/about', {
+    templateUrl: 'pages/about.html',
+  });
+  
+  $routeProvider.when('/pricing', {
+    templateUrl: 'pages/pricing.html',
+    controler: 'calculatorController'
+  });
+
   //Vistas de Session
   $routeProvider.when('/login', {
     templateUrl: 'pages/session/login.html',
