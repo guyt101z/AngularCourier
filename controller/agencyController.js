@@ -55,45 +55,59 @@ app.controller("AgencyController",['$scope','$http','$location','localStorageSer
 
 	}; //add Agencies
 
-		$scope.getAgency = function(agency){
-			console.log( agency );
-		$http({
-			method: 'GET',
-			url: BASE_URL + '/agencies/'+agency.id+".json",
-		})
-		.success(function(data,status,headers,config){
-			console.log( "agencia consultada con exito" );
-			console.log( data );
-			$scope.agency = data;
+	$scope.setAgency = function(id){
 
-			if(localStorageService.isSupported){
-					console.log("Soporta Storage Service");
-					console.log(  $scope.agency.id +" esta en data storage" );
-
-					//localStorageService.set("id", $scope.agency.id);
-					localStorage.setItem("id",$scope.agency.id);
-
-					console.log("Sacado del browser: "+localStorage.getItem("id"));
-					//$location.path("/agencies");
-
-				}else{
-					alert("Your browser does not support localStorage");
-				}
-			//deberiamos enviar el mensaje de CREADO!
-		})
-		.error(function(data,status,headers,config){
-			console.log( "error consulta agencia" );
-			// If user doesnt have a token, create one and signin
-			//$scope.loginPOST();
-		});
-
-
-
-
-
+		localStorage.setItem("id",id);
+		console.log( "coloque con exito el valor " + localStorage.getItem("id")  );
 
 	}; //add Agencies
 
+
+	$scope.showAgency = function(){
+
+		//console.log( "show en localst:" + localStorage.getItem("id") );
+
+		if(localStorage.getItem("id") == undefined){
+
+			//console.log( "intente leer una agencia pero no habia valor" );
+			//localStorage.removeItem("id");
+
+		}else{
+				console.log("buscoAgencia de valor+ "+localStorage.getItem("id") );
+			$http({
+				method: 'GET',
+				url: BASE_URL + '/agencies/'+localStorage.getItem("id")+".json",
+			})
+			.success(function(data,status,headers,config){
+				console.log( "agencia consultada con exito" );
+				console.log( data );
+				$scope.agency = data;
+
+				if(localStorageService.isSupported){
+						//console.log("Soporta Storage Service");
+						localStorage.setItem("id",$scope.agency.id);
+
+						//si te provoca borrar: localStorage.removeItem("id");
+						 localStorage.removeItem("id");
+					}else{
+						alert("Your browser does not support localStorage");
+					}
+				//deberiamos enviar el mensaje de CREADO!
+			})
+			.error(function(data,status,headers,config){
+				console.log( "error consulta agencia" );
+				// If user doesnt have a token, create one and signin
+				//$scope.loginPOST();
+			});
+		};
+
+	}; //show Agencies
+
+
+
+
+
+	
 
 
 

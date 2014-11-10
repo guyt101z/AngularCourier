@@ -22,9 +22,7 @@
 						<td>{{agencia.phone}}</td>
 						<td>{{agencia.address}}</td>
 						<td>
-<!-- 							<a  href="#/agencies/{{agencia.id}}" ng-click="getAgency(agencia)"> Show</a> -->
-					<!-- 		<button getAgency(agency)> show</button> -->
-							<a  href="" ng-click="getAgency(agencia)"> Show</a>
+						<a  href="#/agencies/{{agencia.id}}" ng-click="setAgency(agencia.id)"> Show</a>
 							<button> edit</button>
 							<button> delete</button>
 						</td>
@@ -36,15 +34,6 @@
 
 		<!-- param mi desgracia, esto anterior sirve -->
 
-	<div ng-show="panel.isSelected(2)" >	
-	<h4>Detaller:</h4>
-	<blockquote>
-		<b>Name: {{agency.name}}</b> 
-		<br>
-		<b>Phone: {{agency.phone}}</b>
-		<br>
-		<cite>Address: {{agency.address}}</cite>
-	</blockquote>
 
 </div>
 	</div>
