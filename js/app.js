@@ -76,7 +76,10 @@ app.config(function($routeProvider){
     templateUrl: 'pages/User/show.html',
     controler: 'userController'
   });
-
+  $routeProvider.when('/users/:id/edit', {
+    templateUrl: 'pages/User/edit.html',
+    controler: 'userController'
+  });
 
   //Vistas de Rates
 

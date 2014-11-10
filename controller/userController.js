@@ -30,6 +30,33 @@ app.controller("userController",['$scope','$http','$location','localStorageServi
 
 	}; //get users
 
+	$scope.signup = function(){
+		if($scope.user.password_confirmation == $scope.user.password){
+			$http({
+				method: 'POST',
+				url: BASE_URL+'/users',
+				params:{
+					'email': $scope.user.email,
+					'password': $scope.user.password,						
+					'role': $scope.user.role,
+					'cedula': $scope.user.cedula,
+					'name': $scope.user.name,
+					'lastname': $scope.user.lastname,
+					'phone': $scope.user.phone
+
+				}
+			})
+			.success(function(data,status,headers,config){
+				console.log("Usuario creado con exito");
+				//hay que poner aunquesea un mensaje XD
+				$location.path("/users");
+			})
+			.error(function(data,status,headers,config){
+				// Error handling
+				console.log('it doesnt work');
+			});
+		}else{ console.log("Password dispares")};
+	};
 
 	$scope.setuser = function(id){
 
@@ -39,7 +66,7 @@ app.controller("userController",['$scope','$http','$location','localStorageServi
 	}; //add users
 
 
-	$scope.showuser = function(){
+	$scope.showUser = function(){
 
 		//console.log( "show en localst:" + localStorage.getItem("id") );
 
@@ -49,13 +76,13 @@ app.controller("userController",['$scope','$http','$location','localStorageServi
 			//localStorage.removeItem("id");
 
 		}else{
-				console.log("buscopaquete de valor+ "+localStorage.getItem("id") );
+				console.log("busco user de valor+ "+localStorage.getItem("id") );
 			$http({
 				method: 'GET',
 				url: BASE_URL + '/users/'+localStorage.getItem("id")+".json",
 			})
 			.success(function(data,status,headers,config){
-				console.log( "paquete consultada con exito" );
+				console.log( "Usuario consultada con exito" );
 				console.log( data );
 				$scope.user = data;
 
@@ -80,58 +107,55 @@ app.controller("userController",['$scope','$http','$location','localStorageServi
 	}; //show users
 
 
-	$scope.updateuser = function(user){
-
+	$scope.updateUser = function(user){
+		if($scope.user.password_confirmation == $scope.user.password){
 		//console.log( "show en localst:" + localStorage.getItem("id") );
 
-		if(localStorage.getItem("id") == undefined){
+			if(localStorage.getItem("id") == undefined){
 
-			console.log( "intente leer una paquete pero no habia valor" );
-			//localStorage.removeItem("id");
+				console.log( "intente leer una persona pero no habia valor" );
+				//localStorage.removeItem("id");
 
-		}else{
-				console.log("busco actualizar paquete de valor "+localStorage.getItem("id") );
-			$http({
-				method: 'PUT',
-				url: BASE_URL + '/users/'+localStorage.getItem("id")+".json",
-				params:{
-					'sender_id': $scope.user.sender_id,
-					'receiver_id': $scope.user.receiver_id,
-					'sender_agency_id': $scope.user.sender_agency_id,
-					'receiver_agency_id': $scope.user.receiver_agency_id,
-					'status': $scope.user.status,
-					'lenght': $scope.user.lenght,
-					'width': $scope.user.width,
-					'height': $scope.user.height,
-					'weight': $scope.user.weight,
-					'value': $scope.user.value,
-				}
-			})
-			.success(function(data,status,headers,config){
-				console.log( "paquete Actualizada con exito" );
-				console.log( data );
-				$scope.user = data;
+			}else{
+					console.log("busco actualizar usuario de valor "+localStorage.getItem("id") );
+				$http({
+					method: 'PUT',
+					url: BASE_URL + '/users/'+localStorage.getItem("id")+".json",
+					params:{
+							'email': $scope.user.email,
+							'password': $scope.user.password,						
+							'role': $scope.user.role,
+							'cedula': $scope.user.cedula,
+							'name': $scope.user.name,
+							'lastname': $scope.user.lastname,
+							'phone': $scope.user.phone
+						}
+				})
+				.success(function(data,status,headers,config){
+					console.log( "Usuario Actualizada con exito" );
+					console.log( data );
+					$scope.user = data;
 
-				if(localStorageService.isSupported){
-						//console.log("Soporta Storage Service");
-						localStorage.setItem("id",$scope.user.id);
+					if(localStorageService.isSupported){
+							//console.log("Soporta Storage Service");
+							localStorage.setItem("id",$scope.user.id);
 
-						//si te provoca borrar: localStorage.removeItem("id");
-						 localStorage.removeItem("id");
+							//si te provoca borrar: localStorage.removeItem("id");
+							 localStorage.removeItem("id");
 
-						  $location.path('/users');  
-					}else{
-						alert("Your browser does not support localStorage");
-					}
-				//deberiamos enviar el mensaje de CREADO!
-			})
-			.error(function(data,status,headers,config){
-				console.log( "error Actualizando paquete" );
-				// If user doesnt have a token, create one and signin
-				//$scope.loginPOST();
-			});
+							  $location.path('/users');  
+						}else{
+							alert("Your browser does not support localStorage");
+						}
+					//deberiamos enviar el mensaje de CREADO!
+				})
+				.error(function(data,status,headers,config){
+					console.log( "error Actualizando usuario" );
+					// If user doesnt have a token, create one and signin
+					//$scope.loginPOST();
+				});
+			};
 		};
-
 	}; //update users
 
 	$scope.deleteuser = function(id){
