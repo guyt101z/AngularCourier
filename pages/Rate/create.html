@@ -1,1 +1,26 @@
-crea
+
+		<div>
+			
+			<form name="RateForm" ng-controller="rateController as ssCrtl" ng-submit="RateForm.$valid && addrate()" ng-show="panel.isSelected(5)" novalidate>
+				<h4>Preview:</h4>
+				<blockquote>
+					<b>Ceator_id: {{rate.creator_id}}</b> 
+					<br>
+					<b>Constant: {{rate.constant }}</b>
+					<br>
+					<b>K value: {{rate.K_value }}</b>
+				</blockquote>
+
+				<label>Creator_id:</label>
+				<input ng-model="rate.creator_id" type="numeric" required/>
+				<br>
+				<label>Constant:</label>
+				<input ng-model="rate.constant" type="numeric" required/>
+				<br>
+				<label>K_value:</label>
+				<input ng-model="rate.K_value" type="numeric" required/>
+				<br>
+				<div> Formulario es {{RateForm.$valid}}</div>
+				<input type="submit" value="Login"/>
+			</form>
+		</div>

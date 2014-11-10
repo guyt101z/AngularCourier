@@ -35,16 +35,9 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 			method: 'POST',
 			url: BASE_URL + '/rates.json',
 			params:{
-				'sender_id': $scope.rate.sender_id,
-				'receiver_id': $scope.rate.receiver_id,
-				'sender_agency_id': $scope.rate.sender_agency_id,
-				'receiver_agency_id': $scope.rate.receiver_agency_id,
-				'status': $scope.rate.status,
-				'lenght': $scope.rate.lenght,
-				'width': $scope.rate.width,
-				'height': $scope.rate.height,
-				'weight': $scope.rate.weight,
-				'value': $scope.rate.value,
+				'creator_id': $scope.rate.creator_id,
+				'constant': $scope.rate.constant,
+				'K_value': $scope.rate.K_value,
 			}
 		})
 		.success(function(data,status,headers,config){
@@ -127,16 +120,9 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 				method: 'PUT',
 				url: BASE_URL + '/rates/'+localStorage.getItem("id")+".json",
 				params:{
-					'sender_id': $scope.rate.sender_id,
-					'receiver_id': $scope.rate.receiver_id,
-					'sender_agency_id': $scope.rate.sender_agency_id,
-					'receiver_agency_id': $scope.rate.receiver_agency_id,
-					'status': $scope.rate.status,
-					'lenght': $scope.rate.lenght,
-					'width': $scope.rate.width,
-					'height': $scope.rate.height,
-					'weight': $scope.rate.weight,
-					'value': $scope.rate.value,
+					'creator_id': $scope.rate.creator_id,
+					'constant': $scope.rate.constant,
+					'K_value': $scope.rate.K_value,
 				}
 			})
 			.success(function(data,status,headers,config){
