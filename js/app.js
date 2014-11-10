@@ -1,5 +1,5 @@
 
-var app = angular.module('courier', ['courier-agencies','courier-sessions','courier-calculadora','ngRoute','LocalStorageModule']);
+var app = angular.module('courier', ['courier-agencies','courier-sessions','courier-calculadora','courier-packages','ngRoute','LocalStorageModule']);
 
 app.config(function($routeProvider){
 
@@ -46,9 +46,20 @@ app.config(function($routeProvider){
     templateUrl: 'pages/Agency/edit.html',
     controler: 'agencyController'
   });
+  //Vistas de Packages
+  $routeProvider.when('/packages', {
+    templateUrl: 'pages/Package/index.html',
+    controler: 'packageController'
+  });
+  $routeProvider.when('/packages/new', {
+    templateUrl: 'pages/Package/create.html',
+    controler: 'packageController'
+  });
 
 
 
+
+  //default
   $routeProvider.otherwise('/');
 
 });

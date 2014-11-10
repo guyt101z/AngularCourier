@@ -1,0 +1,43 @@
+	<!-- esto hay que quitarlo de aqui -->
+	<div ng-show="panel.isSelected(3)" class="media" ng-controller="packageController as courier">
+		<!-- workaround1 = getting the first packages to show -->
+		<a href="#/packages" ng-init="getpackages()"></a> 
+		<!-- workaround2 = after a new agency is added, to refresh the page -->
+		<button class="btn btn-default" href="#/packages" ng-click="getpackages()"> Refresh </button>
+
+		<div class="media-body">
+			 <table class="table table-hover">
+				 <thead>
+					<tr>
+					<th>Sender</th>
+					<th>Receiver</th>
+					<th>Sender agency</th>
+					<th>Receiver agency</th>
+					<th>Status</th>
+					<th colspan="6">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- listing resourses one by one -->
+					<tr ng-repeat="package in courier.packages">
+						<td>{{package.sender_id}}</td>
+						<td>{{package.receiver_id}}</td>
+						<td>{{package.sender_agency_id}}</td>
+						<td>{{package.receiver_agency_id}}</td>
+						<td>{{package.status}}</td>
+
+						<td>
+						<a class="btn btn-mini btn-success" href="#/packages/{{package.id}}" ng-click="setAgency(package.id)"> Show </a>
+						<a  class="btn btn-default" href="#/packages/{{package.id}}/edit" ng-click="setAgency(package.id)"> Edit </a>
+						<button class="btn btn-danger" ng-click="deleteAgency(package.id)"> Delete </button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<a class="btn btn-mini btn-success" href="#/packages/new"> Nuevo Paquete </a>
+		</div>
+
+		<!-- param mi desgracia, esto anterior sirve -->
+
+</div>
+	</div>
