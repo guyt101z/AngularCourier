@@ -35,14 +35,20 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 			method: 'POST',
 			url: BASE_URL + '/packages.json',
 			params:{
-				'name': $scope.package.name,
-				'phone': $scope.package.phone,
-				'address': $scope.package.address
-				
+				'sender_id': $scope.package.sender_id,
+				'receiver_id': $scope.package.receiver_id,
+				'sender_agency_id': $scope.package.sender_agency_id,
+				'receiver_agency_id': $scope.package.receiver_agency_id,
+				'status': $scope.package.status,
+				'lenght': $scope.package.lenght,
+				'width': $scope.package.width,
+				'height': $scope.package.height,
+				'weight': $scope.package.weight,
+				'value': $scope.package.value,
 			}
 		})
 		.success(function(data,status,headers,config){
-			console.log( "paquete creada" );
+			console.log( "paquete creado" );
 			console.log( data );
 			courier.packages =  courier.packages + data;
 			$scope.package = [];
@@ -204,3 +210,18 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 })();
 
 
+// created_at: "2014-11-08T02:37:16.178Z"
+// delivered_at: "2014-11-08T02:37:16.177Z"
+// dispatched_at: "2014-11-08T02:37:16.177Z"
+// height: "12.0"
+// id: 2
+// lenght: "15.0"
+// receiver_agency_id: 1
+// receiver_id: 2
+// sender_agency_id: 3
+// sender_id: 1
+// status: "lost"
+// updated_at: "2014-11-08T02:37:16.178Z"
+// value: "150.0"
+// weight: "8.0"
+// width: "36.0"	
