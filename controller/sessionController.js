@@ -92,24 +92,31 @@
 		//implementada a medias
 		// User creation (sera?)
 		$scope.signup = function(){
-			$http({
-				method: 'POST',
-				url: BASE_URL+'/user',
-				params:{
-					'email': $scope.user.email,
-					'username': $scope.user.username,
-					'agency_id': $scope.user.agency_id,
-					'password': $scope.user.password,
-					'password_confirmation': $scope.user.password_confirmation
-				}
-			})
-			.success(function(data,status,headers,config){
-				$location.path("/");
-			})
-			.error(function(data,status,headers,config){
-				// Error handling
-				console.log('it doesnt work')
-			});
+			if($scope.user.password_confirmation == $scope.user.password){
+				$http({
+					method: 'POST',
+					url: BASE_URL+'/api/v1/users',
+					params:{
+						'email': $scope.user.email,
+						'password': $scope.user.password,						
+						'role': $scope.user.role,
+						'cedula': $scope.user.cedula,
+						'name': $scope.user.name,
+						'lastname': $scope.user.lastname,
+						'phone': $scope.user.phone
+
+					}
+				})
+				.success(function(data,status,headers,config){
+					console.log("Usuario creado con exito");
+					//hay que poner aunquesea un mensaje XD
+					$location.path("/");
+				})
+				.error(function(data,status,headers,config){
+					// Error handling
+					console.log('it doesnt work');
+				});
+			}else{ console.log("Password dispares")};
 		};
 
 
