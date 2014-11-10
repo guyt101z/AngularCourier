@@ -29,17 +29,17 @@
 				
 					<!-- Este es el bloque de aquellos que deben mostrarse segun condiciones -->	
 					<!-- Logeados -->			
-					<li ng-class="{ active: panel.isSelected(8)}"> 
+					<li ng-show="logged" ng-class="{ active: panel.isSelected(8)}"> 
 						<a href="#/profile" ng-click="panel.selectTab(8)"> My Profile </a>
 					</li>
-					<li ng-class="{ active: panel.isSelected(9)}"> 
+					<li ng-show="logged" ng-class="{ active: panel.isSelected(9)}"> 
 						<a href="#/logout" ng-click="panel.selectTab(9)"> Sign Out</a>
 					</li>
 					<!-- No logueados -->
-					<li ng-class="{ active: panel.isSelected(10)}"> 
+					<li ng-hide="logged" ng-class="{ active: panel.isSelected(10)}"> 
 						<a href="#/signup" ng-click="panel.selectTab(10)"> Sign Up </a>
 					</li>
-					<li ng-class="{ active: panel.isSelected(11)}"> 
+					<li ng-hide="logged" ng-class="{ active: panel.isSelected(11)}"> 
 						<a href="#/login" ng-click="panel.selectTab(11)"> Sign in </a>
 					</li>
 				

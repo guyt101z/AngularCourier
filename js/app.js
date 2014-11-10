@@ -65,6 +65,15 @@ app.directive('panelTabs', function(){
           return this.tab === checkTab;
         };
 
+        this.logged = function(){
+          if(localStorage.getItem("is_logged") == undefined){
+            return false;
+          }else{
+            return false;
+          };
+        };
+
+
     },
     controllerAs: 'panel'
   };
