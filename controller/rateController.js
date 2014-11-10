@@ -1,58 +1,58 @@
 (function(){
 
-var app = angular.module('courier-packages',[])
+var app = angular.module('courier-rates',[])
 
 
 
-app.controller("packageController",['$scope','$http','$location','localStorageService', function($scope,$http,$location,localStorageService){
+app.controller("rateController",['$scope','$http','$location','localStorageService', function($scope,$http,$location,localStorageService){
 	var courier = this;
-	var	package = {};
+	var	rate = {};
 
 
 	var BASE_URL = "http://torreta-163528.sae1.nitrousbox.com/api/v1";
 
-	courier.packages = [];
+	courier.rates = [];
 
 	//Consultos la paquetes que se encuentran en el API
-	$scope.getpackages = function(){
+	$scope.getrates = function(){
 		$http({
 			method: 'GET',
-			url: BASE_URL + '/packages.json',
+			url: BASE_URL + '/rates.json',
 		})
 		.success(function(data,status,headers,config){
 			console.log( data );
-			courier.packages = data;
+			courier.rates = data;
 		})
 		.error(function(data,status,headers,config){
 			// If user doesnt have a token, create one and signin
 			//$scope.loginPOST();
 		});
 
-	}; //get packages
+	}; //get rates
 
-	$scope.addPackage = function(package){
+	$scope.addrate = function(rate){
 		$http({
 			method: 'POST',
-			url: BASE_URL + '/packages.json',
+			url: BASE_URL + '/rates.json',
 			params:{
-				'sender_id': $scope.package.sender_id,
-				'receiver_id': $scope.package.receiver_id,
-				'sender_agency_id': $scope.package.sender_agency_id,
-				'receiver_agency_id': $scope.package.receiver_agency_id,
-				'status': $scope.package.status,
-				'lenght': $scope.package.lenght,
-				'width': $scope.package.width,
-				'height': $scope.package.height,
-				'weight': $scope.package.weight,
-				'value': $scope.package.value,
+				'sender_id': $scope.rate.sender_id,
+				'receiver_id': $scope.rate.receiver_id,
+				'sender_agency_id': $scope.rate.sender_agency_id,
+				'receiver_agency_id': $scope.rate.receiver_agency_id,
+				'status': $scope.rate.status,
+				'lenght': $scope.rate.lenght,
+				'width': $scope.rate.width,
+				'height': $scope.rate.height,
+				'weight': $scope.rate.weight,
+				'value': $scope.rate.value,
 			}
 		})
 		.success(function(data,status,headers,config){
 			console.log( "paquete creado" );
 			console.log( data );
-			courier.packages =  courier.packages + data;
-			$scope.package = [];
-			$location.path('/packages'); 
+			courier.rates =  courier.rates + data;
+			$scope.rate = [];
+			$location.path('/rates'); 
 			//deberiamos enviar el mensaje de CREADO!
 		})
 		.error(function(data,status,headers,config){
@@ -61,17 +61,17 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 			//$scope.loginPOST();
 		});
 
-	}; //add packages
+	}; //add rates
 
-	$scope.setPackage = function(id){
+	$scope.setrate = function(id){
 
 		localStorage.setItem("id",id);
 		console.log( "coloque con exito el valor " + localStorage.getItem("id")  );
 
-	}; //add packages
+	}; //add rates
 
 
-	$scope.showPackage = function(){
+	$scope.showrate = function(){
 
 		//console.log( "show en localst:" + localStorage.getItem("id") );
 
@@ -84,16 +84,16 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 				console.log("buscopaquete de valor+ "+localStorage.getItem("id") );
 			$http({
 				method: 'GET',
-				url: BASE_URL + '/packages/'+localStorage.getItem("id")+".json",
+				url: BASE_URL + '/rates/'+localStorage.getItem("id")+".json",
 			})
 			.success(function(data,status,headers,config){
 				console.log( "paquete consultada con exito" );
 				console.log( data );
-				$scope.package = data;
+				$scope.rate = data;
 
 				if(localStorageService.isSupported){
 						//console.log("Soporta Storage Service");
-						localStorage.setItem("id",$scope.package.id);
+						localStorage.setItem("id",$scope.rate.id);
 
 						// si te provoca borrar: localStorage.removeItem("id");
 						// localStorage.removeItem("id");
@@ -109,10 +109,10 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 			});
 		};
 
-	}; //show packages
+	}; //show rates
 
 
-	$scope.updatePackage = function(package){
+	$scope.updaterate = function(rate){
 
 		//console.log( "show en localst:" + localStorage.getItem("id") );
 
@@ -125,33 +125,33 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 				console.log("busco actualizar paquete de valor "+localStorage.getItem("id") );
 			$http({
 				method: 'PUT',
-				url: BASE_URL + '/packages/'+localStorage.getItem("id")+".json",
+				url: BASE_URL + '/rates/'+localStorage.getItem("id")+".json",
 				params:{
-					'sender_id': $scope.package.sender_id,
-					'receiver_id': $scope.package.receiver_id,
-					'sender_agency_id': $scope.package.sender_agency_id,
-					'receiver_agency_id': $scope.package.receiver_agency_id,
-					'status': $scope.package.status,
-					'lenght': $scope.package.lenght,
-					'width': $scope.package.width,
-					'height': $scope.package.height,
-					'weight': $scope.package.weight,
-					'value': $scope.package.value,
+					'sender_id': $scope.rate.sender_id,
+					'receiver_id': $scope.rate.receiver_id,
+					'sender_agency_id': $scope.rate.sender_agency_id,
+					'receiver_agency_id': $scope.rate.receiver_agency_id,
+					'status': $scope.rate.status,
+					'lenght': $scope.rate.lenght,
+					'width': $scope.rate.width,
+					'height': $scope.rate.height,
+					'weight': $scope.rate.weight,
+					'value': $scope.rate.value,
 				}
 			})
 			.success(function(data,status,headers,config){
 				console.log( "paquete Actualizada con exito" );
 				console.log( data );
-				$scope.package = data;
+				$scope.rate = data;
 
 				if(localStorageService.isSupported){
 						//console.log("Soporta Storage Service");
-						localStorage.setItem("id",$scope.package.id);
+						localStorage.setItem("id",$scope.rate.id);
 
 						//si te provoca borrar: localStorage.removeItem("id");
 						 localStorage.removeItem("id");
 
-						  $location.path('/packages');  
+						  $location.path('/rates');  
 					}else{
 						alert("Your browser does not support localStorage");
 					}
@@ -164,9 +164,9 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 			});
 		};
 
-	}; //update packages
+	}; //update rates
 
-	$scope.deletePackage = function(id){
+	$scope.deleterate = function(id){
 
 		//console.log( "show en localst:" + localStorage.getItem("id") );
 
@@ -175,21 +175,21 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 		if( confirm("De verdad quieres borrar una paquete?!") ){
 			$http({
 				method: 'DELETE',
-				url: BASE_URL + '/packages/'+id,
+				url: BASE_URL + '/rates/'+id,
 			})
 			.success(function(data,status,headers,config){
 				console.log( "paquete Borrada con exito" );
 				console.log( data );
-				$scope.package = data;
+				$scope.rate = data;
 
 				if(localStorageService.isSupported){
 						//console.log("Soporta Storage Service");
-						localStorage.setItem("id",$scope.package.id);
+						localStorage.setItem("id",$scope.rate.id);
 
 						//si te provoca borrar: localStorage.removeItem("id");
 						 localStorage.removeItem("id");
 
-						  $scope.getpackages();  
+						  $scope.getrates();  
 					}else{
 						alert("Your browser does not support localStorage");
 					}
@@ -202,7 +202,7 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 			});
 		};
 
-	}; //delete packages
+	}; //delete rates
 
 	
 

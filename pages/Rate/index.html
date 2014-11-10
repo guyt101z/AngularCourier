@@ -1,0 +1,38 @@
+	<!-- esto hay que quitarlo de aqui -->
+	<div ng-show="panel.isSelected(5)" class="media" ng-controller="rateController as courier">
+		<!-- workaround1 = getting the first rates to show -->
+		<a href="#/rates" ng-init="getrates()"></a> 
+		<!-- workaround2 = after a new agency is added, to refresh the page -->
+		<button class="btn btn-default" href="#/rates" ng-click="getrates()"> Refresh </button>
+
+		<div class="media-body">
+			 <table class="table table-hover">
+				 <thead>
+					<tr>
+					<th>Creator</th>
+					<th>Constant </th>
+					<th> K value</th>
+					<th colspan="6">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- listing resourses one by one -->
+					<tr ng-repeat="rate in courier.rates">
+						<td>{{rate.creator_id}}</td>
+						<td>{{rate.constant}}</td>
+						<td>{{rate.K_value}}</td>
+						<td>
+						<a class="btn btn-mini btn-success" href="#/rates/{{rate.id}}" ng-click="setrate(rate.id)"> Show </a>
+						<a  class="btn btn-default" href="#/rates/{{rate.id}}/edit" ng-click="setrate(rate.id)"> Edit </a>
+						<button class="btn btn-danger" ng-click="deleterate(rate.id)"> Delete </button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<a class="btn btn-mini btn-success" href="#/rates/new"> New Rate </a>
+		</div>
+
+		<!-- param mi desgracia, esto anterior sirve -->
+
+</div>
+	</div>

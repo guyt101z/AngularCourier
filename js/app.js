@@ -1,5 +1,12 @@
 
-var app = angular.module('courier', ['courier-agencies','courier-sessions','courier-calculadora','courier-user','courier-packages','ngRoute','LocalStorageModule']);
+var app = angular.module('courier', ['courier-agencies',
+                                      'courier-sessions',
+                                      'courier-calculadora',
+                                      'courier-user',
+                                      'courier-packages',
+                                      'courier-rates',
+                                      'ngRoute',
+                                      'LocalStorageModule']);
 
 app.config(function($routeProvider){
 
@@ -82,8 +89,14 @@ app.config(function($routeProvider){
   });
 
   //Vistas de Rates
-
-
+  $routeProvider.when('/rates', {
+    templateUrl: 'pages/Rate/index.html',
+    controler: 'rateController'
+  });
+  $routeProvider.when('/rates/new', {
+    templateUrl: 'pages/RAte/create.html',
+    controler: 'rateController'
+  });
 
 
 
