@@ -13,7 +13,7 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 
 	courier.rates = [];
 
-	//Consultos la paquetes que se encuentran en el API
+	//Consultos la tarifas que se encuentran en el API
 	$scope.getrates = function(){
 		$http({
 			method: 'GET',
@@ -41,7 +41,7 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 			}
 		})
 		.success(function(data,status,headers,config){
-			console.log( "paquete creado" );
+			console.log( "tarifa creado" );
 			console.log( data );
 			courier.rates =  courier.rates + data;
 			$scope.rate = [];
@@ -49,7 +49,7 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 			//deberiamos enviar el mensaje de CREADO!
 		})
 		.error(function(data,status,headers,config){
-			console.log( "error creacion paquete" );
+			console.log( "error creacion tarifa" );
 			// If user doesnt have a token, create one and signin
 			//$scope.loginPOST();
 		});
@@ -70,17 +70,17 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 
 		if(localStorage.getItem("id") == undefined){
 
-			console.log( "intente leer una paquete pero no habia valor" );
+			console.log( "intente leer una tarifa pero no habia valor" );
 			//localStorage.removeItem("id");
 
 		}else{
-				console.log("buscopaquete de valor+ "+localStorage.getItem("id") );
+				console.log("buscotarifa de valor+ "+localStorage.getItem("id") );
 			$http({
 				method: 'GET',
 				url: BASE_URL + '/rates/'+localStorage.getItem("id")+".json",
 			})
 			.success(function(data,status,headers,config){
-				console.log( "paquete consultada con exito" );
+				console.log( "tarifa consultada con exito" );
 				console.log( data );
 				$scope.rate = data;
 
@@ -96,7 +96,7 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 				//deberiamos enviar el mensaje de CREADO!
 			})
 			.error(function(data,status,headers,config){
-				console.log( "error consulta paquete" );
+				console.log( "error consulta tarifa" );
 				// If user doesnt have a token, create one and signin
 				//$scope.loginPOST();
 			});
@@ -111,11 +111,11 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 
 		if(localStorage.getItem("id") == undefined){
 
-			console.log( "intente leer una paquete pero no habia valor" );
+			console.log( "intente leer una tarifa pero no habia valor" );
 			//localStorage.removeItem("id");
 
 		}else{
-				console.log("busco actualizar paquete de valor "+localStorage.getItem("id") );
+				console.log("busco actualizar tarifa de valor "+localStorage.getItem("id") );
 			$http({
 				method: 'PUT',
 				url: BASE_URL + '/rates/'+localStorage.getItem("id")+".json",
@@ -126,7 +126,7 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 				}
 			})
 			.success(function(data,status,headers,config){
-				console.log( "paquete Actualizada con exito" );
+				console.log( "tarifa Actualizada con exito" );
 				console.log( data );
 				$scope.rate = data;
 
@@ -144,7 +144,7 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 				//deberiamos enviar el mensaje de CREADO!
 			})
 			.error(function(data,status,headers,config){
-				console.log( "error Actualizando paquete" );
+				console.log( "error Actualizando tarifa" );
 				// If user doesnt have a token, create one and signin
 				//$scope.loginPOST();
 			});
@@ -156,15 +156,15 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 
 		//console.log( "show en localst:" + localStorage.getItem("id") );
 
-			console.log("busco borrar paquete de valor "+id );
+			console.log("busco borrar tarifa de valor "+id );
 
-		if( confirm("De verdad quieres borrar una paquete?!") ){
+		if( confirm("De verdad quieres borrar una tarifa?!") ){
 			$http({
 				method: 'DELETE',
 				url: BASE_URL + '/rates/'+id,
 			})
 			.success(function(data,status,headers,config){
-				console.log( "paquete Borrada con exito" );
+				console.log( "tarifa Borrada con exito" );
 				console.log( data );
 				$scope.rate = data;
 
@@ -182,7 +182,7 @@ app.controller("rateController",['$scope','$http','$location','localStorageServi
 				//deberiamos enviar el mensaje de CREADO!
 			})
 			.error(function(data,status,headers,config){
-				console.log( "error borrando paquete" );
+				console.log( "error borrando tarifa" );
 				// If user doesnt have a token, create one and signin
 				//$scope.loginPOST();
 			});

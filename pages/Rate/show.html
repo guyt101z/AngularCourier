@@ -1,1 +1,15 @@
-asa
+<div ng-controller="rateController as courier" ng-show="panel.isSelected(5)" >	
+	<h4>Rate:</h4>
+	
+	<a href="#/rates" ng-init="showrate()"> </a> 
+		<h4>Preview:</h4>
+		<blockquote>
+			<b>Ceator_id: {{rate.creator_id}}</b> 
+			<br>
+			<b>Constant: {{rate.constant }}</b>
+			<br>
+			<b>K value: {{rate.K_value }}</b>
+		</blockquote>
+	<a href="#rates">Regresar</a>
+	<a  href="#/rates/{{rate.id}}/edit" ng-click="setrate(rate.id)"> Edit </a>
+</div>

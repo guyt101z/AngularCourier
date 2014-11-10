@@ -97,8 +97,14 @@ app.config(function($routeProvider){
     templateUrl: 'pages/RAte/create.html',
     controler: 'rateController'
   });
-
-
+  $routeProvider.when('/rates/:id', {
+    templateUrl: 'pages/Rate/show.html',
+    controler: 'rateController'
+  });
+  $routeProvider.when('/rates/:id/edit', {
+    templateUrl: 'pages/Rate/edit.html',
+    controler: 'rateController'
+  });
 
   //default
   $routeProvider.otherwise('/');
