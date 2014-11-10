@@ -24,6 +24,10 @@ app.config(function($routeProvider){
     templateUrl: 'pages/Agency/show.html',
     controler: 'agencyController'
   });
+    $routeProvider.when('/agencies/:id/edit', {
+    templateUrl: 'pages/Agency/edit.html',
+    controler: 'agencyController'
+  });
   $routeProvider.otherwise('/');
 
 });
