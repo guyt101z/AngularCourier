@@ -45,6 +45,7 @@ app.controller("AgencyController",['$scope','$http','$location','localStorageSer
 			console.log( data );
 			courier.agencies =  courier.agencies + data;
 			$scope.agency = [];
+			$location.path('/agencies'); 
 			//deberiamos enviar el mensaje de CREADO!
 		})
 		.error(function(data,status,headers,config){
