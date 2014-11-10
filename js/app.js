@@ -55,7 +55,10 @@ app.config(function($routeProvider){
     templateUrl: 'pages/Package/create.html',
     controler: 'packageController'
   });
-
+    $routeProvider.when('/packages/:id', {
+    templateUrl: 'pages/Package/show.html',
+    controler: 'packageController'
+  });
 
 
 

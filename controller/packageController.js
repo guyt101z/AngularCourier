@@ -77,7 +77,7 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 
 		if(localStorage.getItem("id") == undefined){
 
-			//console.log( "intente leer una paquete pero no habia valor" );
+			console.log( "intente leer una paquete pero no habia valor" );
 			//localStorage.removeItem("id");
 
 		}else{

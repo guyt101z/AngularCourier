@@ -1,1 +1,35 @@
-show
+<div ng-controller="packageController as courier" ng-show="panel.isSelected(3)" >	
+	<h4>Package:</h4>
+
+	<a href="#/packages" ng-init="showPackage()"></a> 
+		<blockquote>
+			<b>Sender id: {{package.sender_id}}</b> 
+			<br>
+			<b>Receiver id: {{package.receiver_id}}</b>
+			<br>
+			<b>sender_agency_id: {{package.sender_agency_id}}</b> 
+			<br>
+			<b>receiver_agency_id: {{package.receiver_agency_id}}</b> 
+			<br>
+			<b>status: {{package.status}}</b> 
+			<br>
+			<b>height: {{package.height}}</b> 
+			<br>
+			<b>width: {{package.width}}</b> 
+			<br>
+			<b>weight: {{package.weight}}</b> 
+			<br>
+			<b>lenght: {{package.lenght}}</b> 
+			<br>
+			<b>value: {{package.value}}</b> 
+			<br>
+			<b>created_at: {{package.created_at | date:'dd/MM/yyyy'}}</b> 
+			<br>
+			<b>delivered_at: {{package.delivered_at | date:'dd/MM/yyyy'}}</b> 
+			<br>
+			<b>dispatched_at: {{package.dispatched_at | date:'dd/MM/yyyy'}}</b> 
+			<br>
+		</blockquote>
+	<a href="#packages">Regresar</a>
+	<a  href="#/packages/{{package.id}}/edit" ng-click="setPackage(package.id)"> Edit </a>
+</div>
