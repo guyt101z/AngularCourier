@@ -144,9 +144,10 @@ app.directive('panelTabs', function(){
           };
         };
 
-        this.setuserx = function(){
+        this.setuser = function(){
+          //console.log('si entro a setuserx');
           localStorage.setItem("id",localStorage.getItem("user_id"));
-          console.log( "coloque con exito el valor " + localStorage.getItem("id")  );
+          //console.log( "coloque con exito el valor " + localStorage.getItem("id")  );
 
         }; //add users
 
