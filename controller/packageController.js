@@ -127,9 +127,16 @@ app.controller("packageController",['$scope','$http','$location','localStorageSe
 				method: 'PUT',
 				url: BASE_URL + '/packages/'+localStorage.getItem("id")+".json",
 				params:{
-				'name': $scope.package.name,
-				'phone': $scope.package.phone,
-				'address': $scope.package.address
+					'sender_id': $scope.package.sender_id,
+					'receiver_id': $scope.package.receiver_id,
+					'sender_agency_id': $scope.package.sender_agency_id,
+					'receiver_agency_id': $scope.package.receiver_agency_id,
+					'status': $scope.package.status,
+					'lenght': $scope.package.lenght,
+					'width': $scope.package.width,
+					'height': $scope.package.height,
+					'weight': $scope.package.weight,
+					'value': $scope.package.value,
 				}
 			})
 			.success(function(data,status,headers,config){

@@ -42,7 +42,7 @@ app.config(function($routeProvider){
     templateUrl: 'pages/Agency/show.html',
     controler: 'agencyController'
   });
-    $routeProvider.when('/agencies/:id/edit', {
+  $routeProvider.when('/agencies/:id/edit', {
     templateUrl: 'pages/Agency/edit.html',
     controler: 'agencyController'
   });
@@ -59,6 +59,12 @@ app.config(function($routeProvider){
     templateUrl: 'pages/Package/show.html',
     controler: 'packageController'
   });
+  $routeProvider.when('/packages/:id/edit', {
+    templateUrl: 'pages/Package/edit.html',
+    controler: 'packageController'
+  });
+  //
+
 
 
 

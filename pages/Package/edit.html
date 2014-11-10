@@ -1,1 +1,77 @@
-edit
+		<!-- this should be show only if we where to add another package -->
+		<div>
+			
+			<form name="PackageForm" ng-controller="packageController as pkCtrl" ng-submit="PackageForm.$valid && updatePackage(package)" ng-show="panel.isSelected(3)" novalidate>
+				<h4>Preview:</h4>
+				<a href="#/packages" ng-init="showPackage()"></a> 
+				<blockquote>
+					<b>Sender id: {{package.sender_id}}</b> 
+					<br>
+					<b>Receiver id: {{package.receiver_id}}</b>
+					<br>
+					<b>sender_agency_id: {{package.sender_agency_id}}</b> 
+					<br>
+					<b>receiver_agency_id: {{package.receiver_agency_id}}</b> 
+					<br>
+					<b>status: {{package.status}}</b> 
+					<br>
+					<b>height: {{package.height}}</b> 
+					<br>
+					<b>width: {{package.width}}</b> 
+					<br>
+					<b>weight: {{package.weight}}</b> 
+					<br>
+					<b>lenght: {{package.lenght}}</b> 
+					<br>
+					<b>value: {{package.value}}</b> 
+<!-- 					<br>
+					<b>created_at: {{package.created_at}}</b> 
+					<br>
+					<b>delivered_at: {{package.delivered_at}}</b> 
+					<br>
+					<b>dispatched_at: {{package.dispatched_at}}</b> 
+					<br> -->
+				</blockquote>
+
+				<h4>Form: </h4>
+				<label>sender_id:</label>
+				<input ng-model="package.sender_id" required/>
+				<br>
+				<label>receiver_id:</label>
+				<input ng-model="package.receiver_id" required/>
+				<br>
+				<label>sender_agency_id:</label>
+				<input ng-model="package.sender_agency_id" required/>
+				<br>
+				<label>receiver_agency_id:</label>
+				<input ng-model="package.receiver_agency_id" required/>
+				<br>
+				<label>lenght:</label>		
+				<input ng-model="package.lenght" required> </input>	
+				<br>
+				<label>height:</label>
+				<input ng-model="package.height" required/>
+				<br>
+				<label>weight:</label>
+				<input ng-model="package.weight" required/>
+				<br>			
+				<label>width:</label>
+				<input ng-model="package.width" required/>
+				<br>
+				<label>value:</label>
+				<input ng-model="package.value" required/>
+				<br>
+				<label>status:</label>
+				<select ng-model="package.status" required>
+					<option value="received"> received </option>
+					<option value="lost"> lost </option>
+					<option value="transit"> transit</option>
+					<option value="delivered"> delivered</option>
+				</select>
+
+				<div> Formulario es {{PackageForm.$valid}}</div>
+				<input type="submit" value="Submit"/>
+				<a href="#/packages">Cancel</a>
+			</form>
+		</div>
+
