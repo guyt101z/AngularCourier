@@ -3,7 +3,7 @@
 
 	<a href="#/agencies" ng-init="showAgency()"></a> 
 	<blockquote>
-		<b>Name: {{agency.id}}</b> 
+		<b>Nro. sucursal: {{agency.id}}</b> 
 		<br>		
 		<b>Name: {{agency.name}}</b> 
 		<br>
@@ -15,5 +15,5 @@
 	</blockquote>
 
 	<a href="#agencies">Regresar</a>
-	<a href="#agencies">Editar</a>
+	<a  href="#/agencies/{{agency.id}}/edit" ng-click="setAgency(agency.id)"> Edit </a>
 </div>

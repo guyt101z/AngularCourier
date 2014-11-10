@@ -1,5 +1,5 @@
 	<!-- esto hay que quitarlo de aqui -->
-	<div class="media" ng-controller="AgencyController as courier">
+	<div ng-show="panel.isSelected(2)" class="media" ng-controller="AgencyController as courier">
 		<!-- workaround1 = getting the first agencies to show -->
 		<a href="#/agencies" ng-init="getAgencies()"></a> 
 		<!-- workaround2 = after a new agency is added, to refresh the page -->
