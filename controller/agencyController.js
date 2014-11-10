@@ -70,9 +70,11 @@ app.controller("AgencyController",['$scope','$http','$location','localStorageSer
 					console.log("Soporta Storage Service");
 					console.log(  $scope.agency.id +" esta en data storage" );
 
-					localStorageService.set("id", $scope.agency.id);
+					//localStorageService.set("id", $scope.agency.id);
+					localStorage.setItem("id",$scope.agency.id);
 
-					$location.path("/");
+					console.log("Sacado del browser: "+localStorage.getItem("id"));
+					//$location.path("/agencies");
 
 				}else{
 					alert("Your browser does not support localStorage");
@@ -85,6 +87,11 @@ app.controller("AgencyController",['$scope','$http','$location','localStorageSer
 			//$scope.loginPOST();
 		});
 
+
+
+
+
+
 	}; //add Agencies
 
 
@@ -96,7 +103,6 @@ app.controller("AgencyController",['$scope','$http','$location','localStorageSer
 
 
 
-})(); //class
-
+})();
 
 

@@ -31,7 +31,7 @@ app.config(function($routeProvider){
 app.config(function (localStorageServiceProvider) {
   localStorageServiceProvider
     .setPrefix('myapp')
-    .setStorageType('localStorage')
+    .setStorageType('sessionStorage')
     .setNotify(true, true)
 });
 

@@ -18,7 +18,6 @@
 				<tbody>
 					<!-- listing resourses one by one -->
 					<tr ng-repeat="agencia in courier.agencies">
-						<td>{{agencia.id}}</td>
 						<td>{{agencia.name}}</td>
 						<td>{{agencia.phone}}</td>
 						<td>{{agencia.address}}</td>
@@ -36,10 +35,9 @@
 		</div>
 
 		<!-- param mi desgracia, esto anterior sirve -->
-		 <pre>$location.path() = {{$location.path()}}</pre>
 
 	<div ng-show="panel.isSelected(2)" >	
-	<h4>Agency:</h4>
+	<h4>Detaller:</h4>
 	<blockquote>
 		<b>Name: {{agency.name}}</b> 
 		<br>
