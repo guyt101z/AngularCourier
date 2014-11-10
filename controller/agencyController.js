@@ -135,6 +135,8 @@ app.controller("AgencyController",['$scope','$http','$location','localStorageSer
 
 						//si te provoca borrar: localStorage.removeItem("id");
 						 localStorage.removeItem("id");
+
+						  $location.path('/agencies');  
 					}else{
 						alert("Your browser does not support localStorage");
 					}
