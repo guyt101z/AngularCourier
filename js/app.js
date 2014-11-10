@@ -54,7 +54,7 @@ app.directive('panelTabs', function(){
   return { 
     restrict:'E',
     templateUrl:'pages/panel-tabs.html',
-    controller: function(){
+    controller: function(localStorageService){
 
         this.tab = 1;
 
@@ -66,10 +66,10 @@ app.directive('panelTabs', function(){
         };
 
         this.logged = function(){
-          if(localStorage.getItem("is_logged") == undefined){
+          if(localStorage.getItem("is_loged") == undefined){
             return false;
           }else{
-            return false;
+            return true;
           };
         };
 
