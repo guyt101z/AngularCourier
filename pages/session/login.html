@@ -1,5 +1,22 @@
-<h3>toy login</h3>
-<br>
-<p> my super pagina de login</p>
-<br>
-<h2>Aqui va el formulario de login</h2>
+
+		<div>
+			
+			<form name="LoginForm" ng-controller="sessionController as ssCrtl" ng-submit="LoginForm.$valid && login()" ng-show="panel.isSelected(11)" novalidate>
+				<h4>Preview:</h4>
+				<blockquote>
+					<b>Email: {{user.email}}</b> 
+					<br>
+					<b>Password: {{user.password }}</b>
+				</blockquote>
+
+				<label>Email:</label>
+				<input ng-model="user.email" required/>
+				<br>
+				<label>password:</label>
+				<input ng-model="user.password" type="password" required/>
+				<br>
+
+				<div> Formulario es {{LoginForm.$valid}}</div>
+				<input type="submit" value="Login"/>
+			</form>
+		</div>

@@ -1,5 +1,5 @@
 
-var app = angular.module('courier', ['courier-agencies','ngRoute','LocalStorageModule']);
+var app = angular.module('courier', ['courier-agencies','courier-sessions','ngRoute','LocalStorageModule']);
 
 app.config(function($routeProvider){
 
@@ -8,10 +8,18 @@ app.config(function($routeProvider){
     templateUrl: 'pages/home.html',
 
   });
+  //Vistas de Session
   $routeProvider.when('/login', {
     templateUrl: 'pages/session/login.html',
   });
-
+  $routeProvider.when('/signup', {
+    templateUrl: 'pages/session/signup.html',
+  });
+  $routeProvider.when('/logout', {
+    templateUrl: 'pages/session/logout.html',
+    controler: 'sessionController'
+  });
+  //Vistas de Agencias
   $routeProvider.when('/agencies', {
     templateUrl: 'pages/Agency/index.html',
     controler: 'agencyController'
@@ -28,6 +36,9 @@ app.config(function($routeProvider){
     templateUrl: 'pages/Agency/edit.html',
     controler: 'agencyController'
   });
+
+
+
   $routeProvider.otherwise('/');
 
 });
