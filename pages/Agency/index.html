@@ -1,5 +1,10 @@
 	<!-- esto hay que quitarlo de aqui -->
 	<div class="media" ng-controller="AgencyController as courier">
+		<!-- workaround1 = getting the first agencies to show -->
+		<a href="#/agencies" ng-init="getAgencies()"></a> 
+		<!-- workaround2 = after a new agency is added, to refresh the page -->
+		<button href="#/agencies" ng-click="getAgencies()"> Refresh </button>
+
 		<div class="media-body">
 			 <table class="table table-hover">
 				<thead>
@@ -11,9 +16,8 @@
 					</tr>
 				</thead>
 				<tbody>
+					<!-- listing resourses one by one -->
 					<tr ng-repeat="agencia in courier.agencies">
-						<!-- <td>aqui va la stuff, recursiva por recurso...</td> -->
-
 						<td>{{agencia.name}}</td>
 						<td>{{agencia.phone}}</td>
 						<td>{{agencia.address}}</td>
@@ -28,7 +32,7 @@
 		</div>
 
 
-
+		<!-- this should be show only if we where to add another agency -->
 		<div>
 			<form name="AgencyForm" ng-controller="AgencyController as agCtrl" ng-submit="AgencyForm.$valid && agCtrl.addAgency(agencyx)" ng-show="panel.isSelected(2)" novalidate>
 				<blockquote>

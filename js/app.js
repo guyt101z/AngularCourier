@@ -1,15 +1,19 @@
 
-var app = angular.module('courier', ['ngRoute']);
+var app = angular.module('courier', ['courier-agencies','ngRoute']);
 
 app.config(function($routeProvider){
+
 //all routes
   $routeProvider.when('/', {
-    templateUrl: 'partials/home.html',
+    templateUrl: 'pages/home.html',
 
   });
   $routeProvider.when('/login', {
-    templateUrl: 'partials/login.html',
+    templateUrl: 'pages/session/login.html',
+  });
 
+  $routeProvider.when('/agencies', {
+    templateUrl: 'pages/Agency/index.html',
   });
 
 
@@ -23,3 +27,37 @@ app.run(function($rootScope) {
     console.log('hello');
   }
 });
+
+app.directive('panelTabs', function(){
+  return { 
+    restrict:'E',
+    templateUrl:'pages/panel-tabs.html',
+    controller: function(){
+
+        this.tab = 1;
+
+        this.selectTab = function(setTab){
+          this.tab = setTab;
+        };
+        this.isSelected = function(checkTab){
+          return this.tab === checkTab;
+        };
+
+    },
+    controllerAs: 'panel'
+  };
+
+});
+
+//esta directiva se encarga de desplegar el div principal donde se depliegan todos los demas div
+app.directive('panelViews', function(){
+  return { 
+    restrict:'E',
+    templateUrl:'pages/panel-views.html',
+  };
+
+});
+
+
+
+
