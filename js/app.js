@@ -79,7 +79,7 @@ app.config(function($routeProvider){
     templateUrl: 'pages/User/create.html',
     controler: 'userController'
   });
-    $routeProvider.when('/users/:id', {
+  $routeProvider.when('/users/:id', {
     templateUrl: 'pages/User/show.html',
     controler: 'userController'
   });
@@ -87,7 +87,10 @@ app.config(function($routeProvider){
     templateUrl: 'pages/User/edit.html',
     controler: 'userController'
   });
-
+  $routeProvider.when('/profile', {
+    templateUrl: 'pages/User/clave.html',
+    controler: 'userController'
+  });
   //Vistas de Rates
   $routeProvider.when('/rates', {
     templateUrl: 'pages/Rate/index.html',
@@ -141,6 +144,11 @@ app.directive('panelTabs', function(){
           };
         };
 
+        this.setuserx = function(){
+          localStorage.setItem("id",localStorage.getItem("user_id"));
+          console.log( "coloque con exito el valor " + localStorage.getItem("id")  );
+
+        }; //add users
 
     },
     controllerAs: 'panel'

@@ -30,7 +30,7 @@
 					<!-- Este es el bloque de aquellos que deben mostrarse segun condiciones -->	
 					<!-- Logeados -->			
 					<li ng-show="panel.logged()" ng-class="{ active: panel.isSelected(8)}"> 
-						<a href="#/profile" ng-click="panel.selectTab(8)"> My Profile </a>
+						<a href="#/profile" ng-click="panel.selectTab(8)" ng-click="setuserx()"> My Profile </a>
 					</li>
 					<li ng-show="panel.logged()" ng-class="{ active: panel.isSelected(9)}"> 
 						<a href="#/logout" ng-click="panel.selectTab(9)"> Sign Out</a>
