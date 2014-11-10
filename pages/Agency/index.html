@@ -12,7 +12,7 @@
 						<th>Name</th>
 						<th>Phone</th>
 						<th>Address</th>
-						<th colspan="3"> actions </th>
+						<th colspan="3"> Actions </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -29,31 +29,9 @@
 					</tr>
 				</tbody>
 			</table>
+			<a href="#/agencies/new"> Nueva Agencia </a>
 		</div>
 
-
-		<!-- this should be show only if we where to add another agency -->
-		<div>
-			<form name="AgencyForm" ng-controller="AgencyController as agCtrl" ng-submit="AgencyForm.$valid && agCtrl.addAgency(agencyx)" ng-show="panel.isSelected(2)" novalidate>
-				<blockquote>
-					<b>Name: {{agCtrl.agency.name}}</b> 
-					<br>
-					<b>Phone: {{agCtrl.agency.phone}}</b>
-					<br>
-					<cite>Address: {{agCtrl.agency.address}}</cite>
-				</blockquote>
-				<label>Name:</label>
-				<input ng-model="agCtrl.agencyx.name" required/>
-				<br>
-				<label>Phone:</label>
-				<input ng-model="agCtrl.agencyx.phone" required/>
-				<br>
-				<label>address:</label>		
-				<textarea ng-model="agCtrl.agencyx.address" required> </textarea>		
-				<div> Formulario es {{AgencyForm.$valid}}</div>
-				<input type="submit" value="Submit"/>
-			</form>
-		</div>
 
 
 

@@ -1,0 +1,27 @@
+		<!-- this should be show only if we where to add another agency -->
+		<div>
+			
+			<form name="AgencyForm" ng-controller="AgencyController as agCtrl" ng-submit="AgencyForm.$valid && addAgency(agency)" ng-show="panel.isSelected(2)" novalidate>
+				<h4>Preview:</h4>
+				<blockquote>
+					<b>Name: {{agency.name}}</b> 
+					<br>
+					<b>Phone: {{agency.phone}}</b>
+					<br>
+					<cite>Address: {{agency.address}}</cite>
+				</blockquote>
+
+				<h4>Form: </h4>
+				<label>Name:</label>
+				<input ng-model="agency.name" required/>
+				<br>
+				<label>Phone:</label>
+				<input ng-model="agency.phone" required/>
+				<br>
+				<label>address:</label>		
+				<textarea ng-model="agency.address" required> </textarea>		
+				<div> Formulario es {{AgencyForm.$valid}}</div>
+				<input type="submit" value="Submit"/>
+				<a href="#/agencies">Cancel</a>
+			</form>
+		</div>

@@ -6,7 +6,7 @@ var app = angular.module('courier-agencies',[])
 
 app.controller("AgencyController",['$scope','$http','$location', function($scope,$http,$location){
 	var courier = this;
-	var	agencyx = [];
+	var	agency = [];
 
 	var BASE_URL = "http://torreta-163528.sae1.nitrousbox.com/api/v1";
 
@@ -29,7 +29,28 @@ app.controller("AgencyController",['$scope','$http','$location', function($scope
 
 	}; //get Agencies
 
+	$scope.addAgency = function(agency){
+		$http({
+			method: 'POST',
+			url: BASE_URL + '/agencies.json',
+			params:{
+				'name': $scope.agency.name,
+				'phone': $scope.agency.phone,
+				'address': $scope.agency.address
+			}
+		})
+		.success(function(data,status,headers,config){
+			console.log( "agencia creada" );
+			console.log( data );
+			courier.agencies =  courier.agencies + data;
+		})
+		.error(function(data,status,headers,config){
+			console.log( "error creacion agencia" );
+			// If user doesnt have a token, create one and signin
+			//$scope.loginPOST();
+		});
 
+	}; //get Agencies
 
 
 
