@@ -143,7 +143,7 @@ app.controller("AgencyController",['$scope','$http','$location','localStorageSer
 				//deberiamos enviar el mensaje de CREADO!
 			})
 			.error(function(data,status,headers,config){
-				console.log( "error consulta agencia" );
+				console.log( "error Actualizando agencia" );
 				// If user doesnt have a token, create one and signin
 				//$scope.loginPOST();
 			});
@@ -151,6 +151,43 @@ app.controller("AgencyController",['$scope','$http','$location','localStorageSer
 
 	}; //update Agencies
 
+	$scope.deleteAgency = function(id){
+
+		//console.log( "show en localst:" + localStorage.getItem("id") );
+
+			console.log("busco borrar Agencia de valor "+id );
+
+		if( confirm("De verdad quieres borrar una agencia?!") ){
+			$http({
+				method: 'DELETE',
+				url: BASE_URL + '/agencies/'+id,
+			})
+			.success(function(data,status,headers,config){
+				console.log( "agencia Borrada con exito" );
+				console.log( data );
+				$scope.agency = data;
+
+				if(localStorageService.isSupported){
+						//console.log("Soporta Storage Service");
+						localStorage.setItem("id",$scope.agency.id);
+
+						//si te provoca borrar: localStorage.removeItem("id");
+						 localStorage.removeItem("id");
+
+						  $location.path('/agencies');  
+					}else{
+						alert("Your browser does not support localStorage");
+					}
+				//deberiamos enviar el mensaje de CREADO!
+			})
+			.error(function(data,status,headers,config){
+				console.log( "error borrando agencia" );
+				// If user doesnt have a token, create one and signin
+				//$scope.loginPOST();
+			});
+		};
+
+	}; //delete Agencies
 
 	
 
