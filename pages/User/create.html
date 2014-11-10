@@ -1,0 +1,53 @@
+
+		<div>
+			
+			<form name="SignUpForm" ng-controller="sessionController as ssCrtl" ng-submit="SignUpForm.$valid && signup()" ng-show="panel.isSelected(4)" novalidate>
+				<h4>Preview:</h4>
+				<blockquote>
+					<b>Email: {{user.email}}</b> 
+					<br>
+					<b>Password: {{user.password }}</b>
+					<br>
+					<b>Role: {{user.role }}</b>
+					<br>
+					<b>Cedula: {{user.cedula }}</b>
+					<br>
+					<b>Name: {{user.name}}</b>
+					<br>
+					<b>Lastname: {{user.lastname }}</b>
+					<br>					
+					
+					<b>Phone: {{user.phone }}</b>
+				</blockquote>
+
+				<label>Email:</label>
+				<input ng-model="user.email" type="email" required/>
+				<br>
+				<label>Password:</label>
+				<input ng-model="user.password" type="password" required/>
+				<br>
+				<label>Password confirmation:</label>
+				<input ng-model="user.password_confirmation" type="password" required/>
+				<br>
+				<label>Role:</label>
+				<select ng-model="user.role" required>
+							<option value="Admin"> Admin </option>
+							<option value="Operator"> Operator </option>
+							<option value="Client"> Client</option>
+				</select>
+				<br>
+				<label>Cedula:</label>
+				<input ng-model="user.cedula" required/>
+				<br>
+				<label>Name:</label>
+				<input ng-model="user.name" required/>
+				<br>
+				<label>Lastname:</label>
+				<input ng-model="user.lastname" required/>
+				<br>
+				<label>Phone:</label>
+				<input ng-model="user.phone" required/>
+				<div> Formulario es {{SignUpForm.$valid}}</div>
+				<input type="submit" value="Login"/>
+			</form>
+		</div>

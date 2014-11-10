@@ -110,7 +110,7 @@
 				.success(function(data,status,headers,config){
 					console.log("Usuario creado con exito");
 					//hay que poner aunquesea un mensaje XD
-					$location.path("/");
+					$location.path("/users");
 				})
 				.error(function(data,status,headers,config){
 					// Error handling

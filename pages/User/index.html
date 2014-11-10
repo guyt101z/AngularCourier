@@ -1,0 +1,43 @@
+	<!-- esto hay que quitarlo de aqui -->
+	<div ng-show="panel.isSelected(4)" class="media" ng-controller="userController as courier">
+		<!-- workaround1 = getting the first users to show -->
+		<a href="#/users" ng-init="getusers()"></a> 
+		<!-- workaround2 = after a new agency is added, to refresh the page -->
+		<button class="btn btn-default" href="#/users" ng-click="getusers()"> Refresh </button>
+
+		<div class="media-body">
+			 <table class="table table-hover">
+				 <thead>
+					<tr>
+					<th>Role</th>
+					<th>Cedula</th>
+					<th>Name</th>
+					<th>Lastname</th>
+					<th>Phone</th>
+					<th colspan="6">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- listing resourses one by one -->
+					<tr ng-repeat="user in courier.users">
+						<td>{{user.role}}</td>
+						<td>{{user.cedula}}</td>
+						<td>{{user.name}}</td>
+						<td>{{user.lastname}}</td>
+						<td>{{user.phone}}</td>
+
+						<td>
+						<a class="btn btn-mini btn-success" href="#/users/{{user.id}}" ng-click="setuser(user.id)"> Show </a>
+						<a  class="btn btn-default" href="#/users/{{user.id}}/edit" ng-click="setuser(user.id)"> Edit </a>
+						<button class="btn btn-danger" ng-click="deleteuser(user.id)"> Delete </button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<a class="btn btn-mini btn-success" href="#/users/new"> Nuevo Usuario </a>
+		</div>
+
+		<!-- param mi desgracia, esto anterior sirve -->
+
+</div>
+	</div>

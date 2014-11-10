@@ -1,0 +1,25 @@
+<div ng-controller="userController as courier" ng-show="panel.isSelected(4)" >	
+	<h4>Package:</h4>
+
+	<a href="#/users" ng-init="showuser()"></a> 
+		<h4>Preview:</h4>
+		<blockquote>
+			<b>Email: {{user.email}}</b> 
+			<br>
+			<b>Password: {{user.password }}</b>
+			<br>
+			<b>Role: {{user.role }}</b>
+			<br>
+			<b>Cedula: {{user.cedula }}</b>
+			<br>
+			<b>Name: {{user.name}}</b>
+			<br>
+			<b>Lastname: {{user.lastname }}</b>
+			<br>					
+			
+			<b>Phone: {{user.phone }}</b>
+		</blockquote>
+
+	<a href="#users">Regresar</a>
+	<a  href="#/users/{{user.id}}/edit" ng-click="setuser(user.id)"> Edit </a>
+</div>
