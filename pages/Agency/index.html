@@ -18,11 +18,14 @@
 				<tbody>
 					<!-- listing resourses one by one -->
 					<tr ng-repeat="agencia in courier.agencies">
+						<td>{{agencia.id}}</td>
 						<td>{{agencia.name}}</td>
 						<td>{{agencia.phone}}</td>
 						<td>{{agencia.address}}</td>
 						<td>
-							<button> show</button>
+<!-- 							<a  href="#/agencies/{{agencia.id}}" ng-click="getAgency(agencia)"> Show</a> -->
+					<!-- 		<button getAgency(agency)> show</button> -->
+							<a  href="" ng-click="getAgency(agencia)"> Show</a>
 							<button> edit</button>
 							<button> delete</button>
 						</td>
@@ -32,7 +35,18 @@
 			<a href="#/agencies/new"> Nueva Agencia </a>
 		</div>
 
+		<!-- param mi desgracia, esto anterior sirve -->
+		 <pre>$location.path() = {{$location.path()}}</pre>
 
+	<div ng-show="panel.isSelected(2)" >	
+	<h4>Agency:</h4>
+	<blockquote>
+		<b>Name: {{agency.name}}</b> 
+		<br>
+		<b>Phone: {{agency.phone}}</b>
+		<br>
+		<cite>Address: {{agency.address}}</cite>
+	</blockquote>
 
-
+</div>
 	</div>

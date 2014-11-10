@@ -1,5 +1,5 @@
 
-var app = angular.module('courier', ['courier-agencies','ngRoute']);
+var app = angular.module('courier', ['courier-agencies','ngRoute','LocalStorageModule']);
 
 app.config(function($routeProvider){
 
@@ -20,12 +20,20 @@ app.config(function($routeProvider){
     templateUrl: 'pages/Agency/create.html',
     controler: 'agencyController'
   });
-
+  $routeProvider.when('/agencies/:id', {
+    templateUrl: 'pages/Agency/show.html',
+    controler: 'agencyController'
+  });
   $routeProvider.otherwise('/');
 
 });
 
-
+app.config(function (localStorageServiceProvider) {
+  localStorageServiceProvider
+    .setPrefix('myapp')
+    .setStorageType('localStorage')
+    .setNotify(true, true)
+});
 
 app.directive('panelTabs', function(){
   return { 

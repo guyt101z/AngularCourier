@@ -4,9 +4,10 @@ var app = angular.module('courier-agencies',[])
 
 
 
-app.controller("AgencyController",['$scope','$http','$location', function($scope,$http,$location){
+app.controller("AgencyController",['$scope','$http','$location','localStorageService', function($scope,$http,$location,localStorageService){
 	var courier = this;
-	var	agency = [];
+	var	agency = {};
+
 
 	var BASE_URL = "http://torreta-163528.sae1.nitrousbox.com/api/v1";
 
@@ -43,6 +44,8 @@ app.controller("AgencyController",['$scope','$http','$location', function($scope
 			console.log( "agencia creada" );
 			console.log( data );
 			courier.agencies =  courier.agencies + data;
+			$scope.agency = [];
+			//deberiamos enviar el mensaje de CREADO!
 		})
 		.error(function(data,status,headers,config){
 			console.log( "error creacion agencia" );
@@ -50,8 +53,39 @@ app.controller("AgencyController",['$scope','$http','$location', function($scope
 			//$scope.loginPOST();
 		});
 
-	}; //get Agencies
+	}; //add Agencies
 
+		$scope.getAgency = function(agency){
+			console.log( agency );
+		$http({
+			method: 'GET',
+			url: BASE_URL + '/agencies/'+agency.id+".json",
+		})
+		.success(function(data,status,headers,config){
+			console.log( "agencia consultada con exito" );
+			console.log( data );
+			$scope.agency = data;
+
+			if(localStorageService.isSupported){
+					console.log("Soporta Storage Service");
+					console.log(  $scope.agency.id +" esta en data storage" );
+
+					localStorageService.set("id", $scope.agency.id);
+
+					$location.path("/");
+
+				}else{
+					alert("Your browser does not support localStorage");
+				}
+			//deberiamos enviar el mensaje de CREADO!
+		})
+		.error(function(data,status,headers,config){
+			console.log( "error consulta agencia" );
+			// If user doesnt have a token, create one and signin
+			//$scope.loginPOST();
+		});
+
+	}; //add Agencies
 
 
 
