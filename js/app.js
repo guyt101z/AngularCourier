@@ -148,7 +148,7 @@ app.directive('panelTabs', function(){
           //console.log('si entro a setuserx');
           localStorage.setItem("id",localStorage.getItem("user_id"));
           //console.log( "coloque con exito el valor " + localStorage.getItem("id")  );
-
+          //Aqui deberia colocar un mensaje o refactorizar
         }; //add users
 
     },
